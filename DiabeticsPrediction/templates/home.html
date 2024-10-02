@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    {% load static %}
+    <style type="text/css">
+        div {
+            color: white;
+        }
+    
+        h1 {
+            color: white;
+            font-family: Arial, 'sans-serif'; /* corrected to 'sans-serif' */
+            font-size: 60px;
+            font-weight: bold;
+            margin-top: 200px;
+        }
+    
+        h2 {
+            color: white;
+            font-family: Arial, 'sans-serif'; /* corrected to 'sans-serif' */
+            font-size: 60px;
+            font-weight: bold;
+            margin-top: 200px;
+        }
+    
+        body {
+            background-image: url("{% static 'image/diabatics2.jpg' %}");
+            background-repeat: no-repeat; /* fixed typo: 'background-reped' */
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    
+        input[type="submit"] {
+            background-color: white;
+            border: 2px solid white; /* added solid border */
+            color: black; /* adjusted text color for contrast */
+            padding: 16px 32px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div align='center'>
+        <h1>Wellcome to the Diabetics Prediction System</h1>
+        <form action="predict">
+            <input type="submit" value="Let's gets started">
+        </form>
+    </div>
+</body>
+</html>

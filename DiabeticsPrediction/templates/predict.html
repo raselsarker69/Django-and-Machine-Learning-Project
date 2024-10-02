@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction Page!</title>
+    <style type="text/css">
+        /* General black color for divs */
+        div {
+            color: black;
+        }
+    
+        /* Style for the form container */
+        .main {
+            position: fixed;
+            top: 140px;
+            left: 410px;
+            width: 600px; /* Form width */
+            background-color: #ffffff;
+            border-radius: 15px; /* Rounded corners */
+            padding: 20px; /* Reduced padding to minimize height */
+            text-align: center;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        }
+    
+        /* Welcome text */
+        p {
+            color: black;
+            font-family: Arial, 'sans-serif'; 
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 80px;
+            margin-left: 300px;
+        }
+    
+        /* Form header */
+        h1 {
+            color: #0086b3;
+            font-size: 30px; /* Slightly smaller header */
+            font-weight: bold;
+            margin-bottom: 15px; /* Reduced bottom margin */
+        }
+    
+        /* Form styling */
+        form table {
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
+    
+        /* Table cells styling */
+        table td {
+            padding: 5px; /* Reduced padding for compact form fields */
+        }
+    
+        /* Input field styling */
+        input[type="text"] {
+            width: 80%; /* Field width */
+            padding: 8px; /* Reduced padding for smaller input fields */
+            font-size: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            color: black;
+        }
+    
+        /* Body background */
+        body {
+            background-image: url("{% static 'image/diabatics8.webp' %}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    
+        /* Submit button */
+        input[type="submit"] {
+            background-color: #4dc3ff;
+            border: none;
+            color: white;
+            padding: 10px 20px; /* Reduced padding for smaller button */
+            font-size: 16px; /* Slightly smaller button text */
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    
+        /* Submit button hover effect */
+        input[type="submit"]:hover {
+            background-color: #3399ff;
+        }
+    </style>
+    
+    
+</head>
+<body>
+    <p>Welcome to the Diabetes Prediction Page!</p>
+    <div align="center" class="main">
+        <h1>Please Enter the Following Information:</h1>
+        <form action="result">
+            <table>
+                <tr>
+                    <td align="right">Pregnancies:</td>
+                    <td align="left"><input type='text' name='pregnancies' required></td>
+                </tr>
+                <tr>
+                    <td align="right">Glucose:</td>
+                    <td align="left"><input type='text' name='glucose' required></td>
+                </tr>
+                <tr>
+                    <td align="right">Blood Pressure:</td>
+                    <td align="left"><input type='text' name='bloodpressure' required></td>
+                </tr>
+                <tr>
+                    <td align="right">Skin Thickness:</td>
+                    <td align="left"><input type='text' name='skinthickness' required></td>
+                </tr>
+                <tr>
+                    <td align="right">Insulin:</td>
+                    <td align="left"><input type='text' name='insulin' required></td>
+                </tr>
+                <tr>
+                    <td align="right">BMI:</td>
+                    <td align="left"><input type='text' name='bmi' required></td>
+                </tr>
+                <tr>
+                    <td align="right">Diabetes Predict Function:</td>
+                    <td align="left"><input type='text' name='diabatic' required></td>
+                </tr>
+                <tr>
+                    <td align="right">Age:</td>
+                    <td align="left"><input type='text' name='age' required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        Result: {{result2}}
+    </div>
+
+</body>
+</html>

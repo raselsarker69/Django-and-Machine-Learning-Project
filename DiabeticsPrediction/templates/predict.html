@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diabetes Prediction Page!</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css"/>
+    
+    <title>Prediction Page!</title>
     <style type="text/css">
         /* General black color for divs */
         div {
@@ -14,8 +19,8 @@
         /* Style for the form container */
         .main {
             position: fixed;
-            top: 140px;
-            left: 410px;
+            top: 180px;
+            left: 600px;
             width: 600px; /* Form width */
             background-color: #ffffff;
             border-radius: 15px; /* Rounded corners */
@@ -30,8 +35,8 @@
             font-family: Arial, 'sans-serif'; 
             font-size: 50px;
             font-weight: bold;
-            margin-top: 80px;
-            margin-left: 300px;
+            margin-top: 60px;
+            margin-left: 400px;
         }
     
         /* Form header */
@@ -68,8 +73,10 @@
             background-image: url("{% static 'image/diabatics8.webp' %}");
             background-repeat: no-repeat;
             background-attachment: fixed;
-            background-size: cover;
+            background-size: 100% auto;  /* 100% width, auto height */
+            background-position: center; /* Center the background */
         }
+        
     
         /* Submit button */
         input[type="submit"] {
@@ -87,12 +94,30 @@
         input[type="submit"]:hover {
             background-color: #3399ff;
         }
+        .second{
+            font-size: 30px;
+            margin-left: 200px;
+        }
+        .rasel {
+            margin-top: 15px;
+            display: block;
+            text-align: center;
+            padding: 10px; 
+            font-size: 16px; 
+            color: #0086b3; 
+            text-decoration: none; 
+        }
+        
+        .rasel:hover {
+            color: #3399ff; 
+        }        
     </style>
     
     
 </head>
 <body>
-    <p>Welcome to the Diabetes Prediction Page!</p>
+    <p>Welcome to the Diabetes Prediction System!<br/><span class="second">Tracking Your Health, Preventing Diabetes.</span></p>
+   
     <div align="center" class="main">
         <h1>Please Enter the Following Information:</h1>
         <form action="result">
@@ -136,8 +161,23 @@
                 </tr>
             </table>
         </form>
-        Result: {{result2}}
+        Result: {{result2}}<br/>
+        <a class="rasel" href="{% url 'prediction' %}">Go back to form</a>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+
+
+    {% if messages %}
+    <script>
+        alertify.set('notifier', 'position', 'top-center');
+        {% for flashMsg in messages %}
+            alertify.success("{{ flashMsg|escapejs }}");
+        {% endfor %}
+    </script>
+    {% endif %}
+
 
 </body>
 </html>
